@@ -40,7 +40,7 @@ const Signin = () => {
       resetStates();
       navigate("/dashboard");
     } else {
-      const { email, password, hospitalName, role } = values;
+      const { email, password, hospitalName } = values;
       if (!email || !password || !hospitalName || !role) {
         message.error("Please fill all required fields.");
         return;
