@@ -119,7 +119,24 @@ const Signin = () => {
             layout="vertical"
             onFinish={handleSubmit}
             initialValues={{ remember: true }}
-          >
+          > 
+
+            {!forgetPassword && (
+               <Form.Item
+                  label="Hospital Name"
+                  name="hospitalName"
+                  rules={[{ required: true, message: "Please select a value!" }]}
+                >
+                  <Select placeholder="Select hospital">
+                    {hospitalOptions.map((option) => (
+                      <Select.Option key={option.value} value={option.value}>
+                        {option.label}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+            )} 
+
             <Form.Item
               label="Email"
               name="email"
@@ -144,21 +161,9 @@ const Signin = () => {
                   <Input.Password placeholder="Enter your password" />
                 </Form.Item>
 
-                <Form.Item
-                  label="Hospital Name"
-                  name="hospitalName"
-                  rules={[{ required: true, message: "Please select a value!" }]}
-                >
-                  <Select placeholder="Select hospital">
-                    {hospitalOptions.map((option) => (
-                      <Select.Option key={option.value} value={option.value}>
-                        {option.label}
-                      </Select.Option>
-                    ))}
-                  </Select>
-                </Form.Item>
+               
 
-                <Form.Item
+                {/* <Form.Item
                   label="Role"
                   name="role"
                   rules={[{ required: true, message: "Please select a value!" }]}
@@ -170,7 +175,7 @@ const Signin = () => {
                       </Select.Option>
                     ))}
                   </Select>
-                </Form.Item>
+                </Form.Item> */}
 
                 <Form.Item name="remember" valuePropName="checked">
                   <Checkbox>Remember me</Checkbox>
