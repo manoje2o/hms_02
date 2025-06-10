@@ -41,7 +41,7 @@ const Signin = () => {
       navigate("/dashboard");
     } else {
       const { email, password, hospitalName } = values;
-      if (!email || !password || !hospitalName || !role) {
+      if (!email || !password || !hospitalName ) {
         message.error("Please fill all required fields.");
         return;
       }
